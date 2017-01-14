@@ -1,10 +1,8 @@
-#!/usr/bin/python
-
 # import libraties used in script
 import sys
 import Adafruit_DHT
-import urlparse
 import requests
+import urlparse
 
 # Type of sensor, can be Adafruit_DHT.DHT11, Adafruit_DHT.DHT22, or Adafruit_DHT.AM2302.
 DHT_TYPE = Adafruit_DHT.DHT22
@@ -25,7 +23,7 @@ humidity, temperature = Adafruit_DHT.read_retry(DHT_TYPE, DHT_PIN)
 # If this happens try again!
 if humidity is not None and temperature is not None:
     print('Temp={0:0.1f}*  Humidity={1:0.1f}%'.format(temperature, humidity))
-    r = request.post(urlparse.urljoin(REST_API_BASE,REST_API_ENDPOINT), data={'temp': temperature, 'hum': humidity})
+    r = requests.post(urlparse.urljoin(REST_API_BASE,REST_API_ENDPOINT), data={'temp': temperature, 'hum': humidity})
 else:
     print('Failed to get reading. Try again!')
     sys.exit(1)
