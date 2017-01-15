@@ -11,7 +11,7 @@ DHT_TYPE = Adafruit_DHT.DHT22
 DHT_PIN  = 'P8_11'
 
 REST_API_BASE = 'http://10.112.10.15:5000'
-REST_API_ENDPOINT = '/temp-hum-list/'
+REST_API_ENDPOINT = '/temp-hum/'
 
 
 while True:
