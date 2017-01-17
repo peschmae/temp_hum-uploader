@@ -25,10 +25,15 @@ while True:
     # If this happens try again!
     if humidity is not None and temperature is not None:
         print('Temp={0:0.1f}*  Humidity={1:0.1f}%'.format(temperature, humidity))
-        r = requests.post(
-            urlparse.urljoin(REST_API_BASE, REST_API_ENDPOINT),
-            data={'temp': temperature, 'hum': humidity}
-        )
+        try:
+            r = requests.post(
+                urlparse.urljoin(REST_API_BASE, REST_API_ENDPOINT),
+                data={'temp': temperature, 'hum': humidity},
+                timeout=30
+            )
+        except requests.exceptions.Timeout:
+            print 'POST timed out after 30s'
+
     else:
         print('Failed to get reading. Try again!')
 
