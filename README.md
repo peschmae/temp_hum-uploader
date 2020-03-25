@@ -1,4 +1,7 @@
 # Temperature & Humidity Uploader
+# Deprecated!
+## Adafruit Library no longer supported in favor of circuitpython libraries
+
 Small script to be used on a Beaglebone Black (BBB) or Raspberry PI, which 
 queries a DHT22 sensor, and POSTS the result to a REST API.  
 To be used in conjunction with the temp_hum-rest-api I've written.  
